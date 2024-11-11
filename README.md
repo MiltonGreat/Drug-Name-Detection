@@ -4,7 +4,7 @@
 
 #### 1. Overview
 
-The goal of this project is to identify and extract the names of drugs from images, which can be useful in various fields like healthcare, pharmacy management, and supply chain monitoring. The project uses Tesseract OCR as the primary tool for extracting text from images. To improve the accuracy of the extraction, several preprocessing techniques like grayscale conversion, thresholding, and denoising have been applied.
+The goal of this project is to identify and extract the names of drugs from prescription labels and other images using Optical Character Recognition (OCR) techniques. The project uses various OCR models, such as Tesseract, PaddleOCR (CRNN), and custom image preprocessing methods, to process images and improve text extraction accuracy.
 
 #### 2. Datast
 
@@ -18,28 +18,26 @@ The images contain various pharmaceutical drug names, and the aim is to detect t
 
 The dataset includes images of medicine bottles, blister packs, vials, and other packaging formats commonly found in the healthcare industry. By using this dataset, researchers and practitioners can advance the development of accurate and efficient drug name detection systems, contributing to improved medication management and patient safety in the healthcare industry.
 
-#### 3. Interpretation
+#### 3. Image Preprocessing and OCR
 
-The results indicate that the OCR model struggled to accurately detect the drug names. This could be due to:
+The preprocess_image function applies multiple preprocessing steps to improve the image quality for OCR. The preprocessing steps include:
 
-- Poor image quality
-- Inadequate preprocessing
-- Lack of domain-specific training (fine-tuning required for drug name detection)
+- Grayscale conversion
+- Image resizing
+- Gaussian blur for noise reduction
+- Sharpening using a Laplacian filter
+- Contrast enhancement with CLAHE
+- Binarization using Otsu’s thresholding
+- Rotation correction using Hough Line Transform
 
-#### 4. Next Steps and Improvements
+#### 4. Evaluation
 
-Improving Preprocessing: Experiment with advanced noise reduction techniques, adaptive thresholding, and image rotation to correct misaligned or noisy images.
+The project evaluates OCR models using the following metrics:
 
-Custom Training or Fine-tuning: Fine-tune a model specifically for detecting drug names using the MobileNet SSD architecture or another lightweight model.
+    Fuzzy Similarity: Measures the similarity between the extracted text and the target text using fuzzy string matching.
+    Character Accuracy: Measures the accuracy of the characters in the extracted text compared to the target text.
+    Word Error Rate (WER): A metric used to compare the error rate in the words extracted by OCR models.
 
-Post-Processing Heuristics: Implement dictionary lookups for common drug names to enhance the post-OCR results. Apply domain-specific rules for filtering and improving the accuracy of the detected names.
-
-Optical Character Recognition (OCR): Try different OCR models or fine-tune Tesseract for better recognition performance in specific scenarios, such as drug name detection.
-
-#### 5. Evaluation
-
-This project uses WER (Word Error Rate) and character-level accuracy to better gauge the performance of the OCR model.
-
-#### 6. Source
+#### 5. Source
 
 https://www.kaggle.com/datasets/pkdarabi/the-drug-name-detection-dataset

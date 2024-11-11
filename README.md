@@ -1,18 +1,12 @@
 # Drug-Name-Detection
 
-### Summary and Recommendations
-
 #### 1. Overview
 
 The goal of this project is to identify and extract the names of drugs from prescription labels and other images using Optical Character Recognition (OCR) techniques. The project uses various OCR models, such as Tesseract, PaddleOCR (CRNN), and custom image preprocessing methods, to process images and improve text extraction accuracy.
 
 #### 2. Datast
 
-The Drug Name Detection dataset contains 1823 images of pharmaceutical products sourced from various manufacturers and packaging styles. The dataset used for this project consists of images of drug packaging or labels. The dataset is organized into different sets:
-
-    train: for training
-    test: for testing
-    valid: for validation
+The Drug Name Detection dataset contains 1823 images of pharmaceutical products sourced from various manufacturers and packaging styles. The dataset used for this project consists of images of drug packaging or labels. 
 
 The images contain various pharmaceutical drug names, and the aim is to detect these names accurately.
 

@@ -28,9 +28,9 @@ The preprocess_image function applies multiple preprocessing steps to improve th
 
 The project evaluates OCR models using the following metrics:
 
-    Fuzzy Similarity: Measures the similarity between the extracted text and the target text using fuzzy string matching.
-    Character Accuracy: Measures the accuracy of the characters in the extracted text compared to the target text.
-    Word Error Rate (WER): A metric used to compare the error rate in the words extracted by OCR models.
+- Fuzzy Similarity: Measures the similarity between the extracted text and the target text using fuzzy string matching.
+- Character Accuracy: Measures the accuracy of the characters in the extracted text compared to the target text.
+- Word Error Rate (WER): A metric used to compare the error rate in the words extracted by OCR models.
 
 #### 5. Source
 

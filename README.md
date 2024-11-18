@@ -2,7 +2,7 @@
 
 ### Overview
 
-This project uses the Drug Name Detection dataset from Kaggle, which includes 1,823 images of pharmaceutical product labels from various manufacturers and packaging styles. The goal is to develop and evaluate Optical Character Recognition (OCR) models for accurately identifying drug names from complex and noisy label images.
+This project uses the Drug Name Detection dataset, which includes 1,823 images of pharmaceutical product labels from various manufacturers and packaging styles. The goal is to develop and evaluate Optical Character Recognition (OCR) models for accurately identifying drug names from complex and noisy label images.
 
 The dataset includes a diverse range of packaging formats (e.g., medicine bottles, blister packs, vials) and text styles, making it ideal for training and testing OCR pipelines for healthcare applications such as drug name verification, label digitization, and automated inventory management.
 

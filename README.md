@@ -51,8 +51,9 @@ The dataset includes images of medicine bottles, blister packs, vials, and other
 ### Results
 
 - Tesseract: Average Fuzzy Similarity (21%), Character Accuracy (Low on small and noisy text - 15.3%), Word Error Rate is high (3).1).
-- PaddleOCR: Average Fuzzy Similarity (53%), Better handling of multi-line and rotated text - 89.4%), Word Error Rate is better (1.8).
-- Combined Output: Average Fuzzy Similarity (58%), Higher handling of multi-line and rotated text - (92.4%), Word Error Rate improved (1.2).
+- PaddleOCR: Average Fuzzy Similarity (53%), Better handling of multi-line and rotated text - 89.4%), Word Error Rate is high (1.8).
+- Combined Output: Average Fuzzy Similarity (58%), Higher handling of multi-line and rotated text - (92.4%), Word Error Rate is high (1.2).
+- High word error rate indicatesg that the model struggles to accurately transcribe the text.
   
 ### Future Work
 

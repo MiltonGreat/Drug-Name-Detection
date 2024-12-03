@@ -1,10 +1,14 @@
-# Drug-Name-Detection
+# Drug Name Detection using OCR
 
 ### Overview
 
-This project uses the Drug Name Detection dataset, which includes 1,823 images of pharmaceutical product labels from various manufacturers and packaging styles. The goal is to develop and evaluate Optical Character Recognition (OCR) models for accurately identifying drug names from complex and noisy label images.
+This repository focuses on developing and evaluating Optical Character Recognition (OCR) pipelines for extracting drug names from images. The project leverages state-of-the-art OCR tools such as Tesseract and PaddleOCR (CRNN) to handle structured and unstructured text data effectively. Additionally, advanced preprocessing techniques and evaluation metrics are employed to improve performance.
 
-The dataset includes a diverse range of packaging formats (e.g., medicine bottles, blister packs, vials) and text styles, making it ideal for training and testing OCR pipelines for healthcare applications such as drug name verification, label digitization, and automated inventory management.
+Drug name detection from images is critical for applications in healthcare, pharmacy management, and supply chain monitoring. This project aims to:
+
+- Extract drug names using OCR models.
+- Improve the detection performance through preprocessing.
+- Evaluate results using metrics like Fuzzy Similarity, Character Accuracy, and Word Error Rate (WER).
 
 ### Datast
 
@@ -14,17 +18,28 @@ The images contain various pharmaceutical drug names, and the aim is to detect t
 
 The dataset includes images of medicine bottles, blister packs, vials, and other packaging formats commonly found in the healthcare industry. By using this dataset, researchers and practitioners can advance the development of accurate and efficient drug name detection systems, contributing to improved medication management and patient safety in the healthcare industry.
 
-### Image Preprocessing and OCR
+### Pipeline Description
 
-The preprocess_image function applies multiple preprocessing steps to improve the image quality for OCR. The preprocessing steps include:
+##### Preprocessing:
+- Grayscale conversion.
+- Image resizing for clarity.
+- Contrast enhancement using CLAHE.
+- Noise reduction and sharpening.
+- Binarization with Otsu's method.
+- Rotation correction using Hough Transform.
 
-- Grayscale conversion
-- Image resizing
-- Gaussian blur for noise reduction
-- Sharpening using a Laplacian filter
-- Contrast enhancement with CLAHE
-- Binarization using Otsu’s thresholding
-- Rotation correction using Hough Line Transform
+ ##### OCR Models:
+ - Tesseract OCR: Extracts text using a custom configuration.
+        PaddleOCR (CRNN): Employs CRNN for robust text recognition.
+
+##### Postprocessing:
+- Fuzzy matching with a target drug name dictionary.
+- Combination of Tesseract and PaddleOCR outputs.
+
+##### Evaluation:
+- Fuzzy Similarity Score.
+- Character Accuracy.
+- Word Error Rate (WER).
 
 ### Challenges Addressed
 
@@ -35,15 +50,16 @@ The preprocess_image function applies multiple preprocessing steps to improve th
 
 ### Results
 
-- Tesseract: Average Fuzzy Similarity (~25%), Character Accuracy (Low on small and noisy text).
-- PaddleOCR: Average Fuzzy Similarity (~30%), Better handling of multi-line and rotated text.
-
+- Tesseract: Average Fuzzy Similarity (21%), Character Accuracy (Low on small and noisy text - 15.3%), Word Error Rate is high (3).1).
+- PaddleOCR: Average Fuzzy Similarity (53%), Better handling of multi-line and rotated text - 89.4%), Word Error Rate is better (1.8).
+- Combined Output: Average Fuzzy Similarity (58%), Higher handling of multi-line and rotated text - (92.4%), Word Error Rate improved (1.2).
+  
 ### Future Work
 
-- Fine-tune OCR models with domain-specific data.
-- Train custom recognition models (e.g., CRNN, Transformer-based).
-- Add noise, blur, and distortions to simulate real-world conditions.
-- Build a GUI or deploy as a web app for real-time drug label detection.
+- Fine-tune PaddleOCR with domain-specific data.
+- Add a drug name dictionary for postprocessing.
+- Improve preprocessing steps for noisy and skewed images.
+- Implement ensemble methods for combining OCR outputs.
 
 ### Source
 

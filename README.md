@@ -2,13 +2,8 @@
 
 ### Overview
 
-This repository focuses on developing and evaluating Optical Character Recognition (OCR) pipelines for extracting drug names from images. The project leverages state-of-the-art OCR tools such as Tesseract and PaddleOCR (CRNN) to handle structured and unstructured text data effectively. Additionally, advanced preprocessing techniques and evaluation metrics are employed to improve performance.
-
-Drug name detection from images is critical for applications in healthcare, pharmacy management, and supply chain monitoring. This project aims to:
-
-- Extract drug names using OCR models.
-- Improve the detection performance through preprocessing.
-- Evaluate results using metrics like Fuzzy Similarity, Character Accuracy, and Word Error Rate (WER).
+A Python-based Optical Character Recognition (OCR) system specifically designed for extracting drug names from images. This project combines traditional OCR techniques with YOLO-based text detection and includes preprocessing steps optimized for pharmaceutical packaging.
+Drug name detection from images is critical for applications in healthcare, pharmacy management, and supply chain monitoring. 
 
 ### Datast
 
@@ -20,26 +15,32 @@ The dataset includes images of medicine bottles, blister packs, vials, and other
 
 ### Pipeline Description
 
-##### Preprocessing:
-- Grayscale conversion.
-- Image resizing for clarity.
-- Contrast enhancement using CLAHE.
-- Noise reduction and sharpening.
-- Binarization with Otsu's method.
-- Rotation correction using Hough Transform.
+1. Preprocessing
+- Grayscale conversion
+- Gaussian blur for noise reduction
+- Otsu's thresholding
+- Morphological operations
 
- ##### OCR Models:
- - Tesseract OCR: Extracts text using a custom configuration.
-        PaddleOCR (CRNN): Employs CRNN for robust text recognition.
+2. Text Detection
+- YOLOv8 model for text region detection
+- Bounding box extraction
 
-##### Postprocessing:
-- Fuzzy matching with a target drug name dictionary.
-- Combination of Tesseract and PaddleOCR outputs.
+3. OCR Processing
+- Tesseract OCR with custom configuration
+- Drug name extraction
+- Text cleaning and normalization
 
-##### Evaluation:
-- Fuzzy Similarity Score.
-- Character Accuracy.
-- Word Error Rate (WER).
+4. Post-processing
+- Special character removal
+- Common OCR error correction
+- Drug name validation
+
+### Evaluation
+The system includes evaluation metrics using:
+
+Accuracy scoring
+Fuzzy string matching
+Custom drug name comparison logic
 
 ### Challenges Addressed
 
